@@ -8,7 +8,7 @@ apply plugin: 'io.spring.dependency-management'
 
 group = 'com.example'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+sourceCompatibility = '8'
 
 repositories {
 	mavenCentral()
@@ -21,11 +21,15 @@ wrapper {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation "com.graphql-java-kickstart:graphql-spring-boot-starter:$graphqlKickstartVersion"
+	implementation "com.graphql-java-kickstart:graphiql-spring-boot-starter:$graphqlKickstartVersion"
+	implementation "com.graphql-java-kickstart:voyager-spring-boot-starter:$graphqlKickstartVersion"
+	implementation "com.graphql-java-kickstart:altair-spring-boot-starter:$graphqlKickstartVersion"
 	runtimeOnly "com.graphql-java-kickstart:graphiql-spring-boot-starter:$graphqlKickstartVersion"
 
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	testImplementation "com.graphql-java-kickstart:graphql-spring-boot-starter-test:$graphqlKickstartVersion"
 }
 
 test {
